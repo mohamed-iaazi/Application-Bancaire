@@ -23,7 +23,7 @@ public class GererClient implements OnSelectedListnner {
                             #############################################
                             #                                           #
                             #                                           #
-                            #                   Menu                    #
+                            #               Client Menu                 #
                             #                                           #
                             #                                           #
                             ##############################################
