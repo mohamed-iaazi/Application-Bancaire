@@ -4,6 +4,8 @@ package Menus;
 import Interfaces.OnSelectedListnner;
 import Utils.Input;
 
+import static Utils.Colors.*;
+
 
 /* ##############################
   #         Lets Code By        #
@@ -13,11 +15,11 @@ import Utils.Input;
 public class GererClient implements OnSelectedListnner {
 
     // CLient Menu  where u can chose what do u want to do
-    public static void Menu() {
+    public static void Menu()  {
         int choix = 0;
 
                 while (choix != 5) {
-                    System.out.println("""
+                    System.out.println(Blue+"""
                             #############################################
                             #                                           #
                             #                                           #
@@ -33,11 +35,18 @@ public class GererClient implements OnSelectedListnner {
                                          5) Back To Main
                             
                             
-                            """);
-                    System.out.print("   Entrer Votre Choix : ");
-                    choix = Integer.parseInt(Input.GetInput());
-                    OnSelectedListnner onSelectedListnner = new GererClient();
-                    onSelectedListnner.Select(choix);
+                            """+Reset);
+                    System.out.print(Green+"   Entrer Votre Choix : "+Reset);
+                    try {
+
+
+                        choix = Integer.parseInt(Input.GetInput());
+                        OnSelectedListnner onSelectedListnner = new GererClient();
+                        onSelectedListnner.Select(choix);
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println(Red+"\n\n   Invalid Entry ! \n\n"+Reset);
+                    }
 
 
         }
