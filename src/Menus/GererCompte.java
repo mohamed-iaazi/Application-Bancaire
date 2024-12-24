@@ -20,8 +20,8 @@ public class GererCompte implements OnSelectedListnner {
                                  1) Ajouter un Compte
                                  2) Afficher les Compte detail 
                                  3) Supprimer un compte
-                                 4) Modifier un Client info
-                                 5) Exit
+                                 4) Modifier compte info
+                                 5) Back To Main
                     
                     
                     """);
@@ -36,13 +36,9 @@ public class GererCompte implements OnSelectedListnner {
 
     @Override
     public void Select(int Menu) {
-        Services.Client client=new Services.Client();
+        Services.Compte compte=new Services.Compte();
         switch (Menu){
-            case 1 -> client.Ajouter();
-            case 2 -> client.Afficher();
-            case 3 -> client.supprimer();
-            case 4 -> client.Modifier();
-            case 5 -> { }
+          
 
 
         }
