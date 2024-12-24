@@ -38,7 +38,11 @@ public class GererCompte implements OnSelectedListnner {
     public void Select(int Menu) {
         Services.Compte compte=new Services.Compte();
         switch (Menu){
-          
+            case 1 -> compte.Ajouter();
+            case 2 -> compte.Afficher();
+            case 3 -> compte.supprimer();
+            case 4 -> compte.Modifier();
+            case 5 -> { }
 
 
         }
