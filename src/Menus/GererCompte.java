@@ -14,7 +14,7 @@ public class GererCompte  implements OnSelectedListnner {
                     #############################################
                     #                                           #
                     #                                           #
-                    #                   Menu                    #
+                    #              Compte Menu                  #
                     #                                           #
                     #                                           #
                     ##############################################
