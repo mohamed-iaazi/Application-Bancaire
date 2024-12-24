@@ -2,9 +2,10 @@ package Menus;
 
 import Interfaces.OnSelectedListnner;
 import Utils.Input;
-
+import static Services.Operation.*;
 import static Utils.Colors.*;
 import static Utils.Colors.Reset;
+import static database.Historique.Afficher;
 
 public class GererOperation implements OnSelectedListnner {
     public static void Menu()  {
@@ -45,6 +46,16 @@ public class GererOperation implements OnSelectedListnner {
 
     @Override
     public void Select(int Menu) {
+        switch (Menu){
+            case 1 ->Virment();
+            case 2 ->Retrait();
+            case 3 ->Depots();
+            case 4 -> Afficher();
+            case 5 -> { // To get BAck To main Menu
 
+            }
+
+
+        }
     }
 }
