@@ -1,4 +1,4 @@
-package Menus;
+package Model;
 
 public class Client {
     private  int Id;
