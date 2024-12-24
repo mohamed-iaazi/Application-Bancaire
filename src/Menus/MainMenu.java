@@ -1,14 +1,11 @@
 package Menus;
 
-import Interfaces.Crud;
 import Interfaces.OnSelectedListnner;
-import Services.Client;
-import Services.Compte;
-import Services.Operation;
 import Utils.Input;
 
-public class MainMenu   implements OnSelectedListnner {
+import static Utils.Colors.*;
 
+public class MainMenu   implements OnSelectedListnner  {
 
 
     public static void Menu()  throws Exception {
@@ -19,11 +16,11 @@ public class MainMenu   implements OnSelectedListnner {
         int choix=0;
 
         while (choix!=5){
-            System.out.println("""
+            System.out.println(Green+"""
                                  #############################################
                                  #                                           #
                                  #                                           #
-                                 #                   Menu                    #
+                                 #                Main Menu                  #
                                  #                                           #
                                  #                                           #
                                  ##############################################
@@ -35,15 +32,19 @@ public class MainMenu   implements OnSelectedListnner {
                                               5) Exit
                                           
                     
-                                 """);
-              System.out.print(  "   Entrer Votre Choix : ");
-              choix= Integer.parseInt(Input.GetInput());
+                                 """+Reset);
+              System.out.print(  Yellow+"   Entrer Votre Choix : "+Reset);
 
-//              MainMenu mainMenu=new MainMenu();
-//              mainMenu.Select(choix);
+              try {
+                  choix= Integer.parseInt(Input.GetInput());
+                  OnSelectedListnner onSelectedListnner=new MainMenu();
+                  onSelectedListnner.Select(choix);
 
-            OnSelectedListnner onSelectedListnner=new MainMenu();
-            onSelectedListnner.Select(choix);
+              }
+              catch (NumberFormatException numberFormatException){
+                  System.out.println(Red+"\n\n   Invalid Entry ! \n\n"+Reset);
+              }
+
 
         }
 
@@ -51,7 +52,7 @@ public class MainMenu   implements OnSelectedListnner {
     }
 
     @Override
-    public void Select(int Menu) {
+    public void Select(int Menu) throws Exception {
 
         switch (Menu){
             case 1 -> GererCompte.Menu();
@@ -59,10 +60,9 @@ public class MainMenu   implements OnSelectedListnner {
             case 3 -> GererOperation.Menu();
             case 4 -> Filtrage.Menu();
             case 5 -> { }
+          default -> { }
 
-
-
-        }
+        };
 
     }
 
