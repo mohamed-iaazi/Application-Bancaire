@@ -1,9 +1,10 @@
 package Model;
 
-public class CompteCourant {
+public class CompteCourant extends Compte {
     private  int FraisBancaires;
 
-    public CompteCourant(int fraisBancaires) {
+    public CompteCourant(int numero, double solde, Client proprietaire, int fraisBancaires) {
+        super(numero, solde, proprietaire);
         FraisBancaires = fraisBancaires;
     }
 
