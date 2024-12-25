@@ -3,7 +3,7 @@ package Model;
 public class Operation {
 
     private  String Type;
-    private  int Montant;
+    private  double Montant;
     private  int Date;
     private  int CompteAssocie;
 
@@ -22,7 +22,7 @@ public class Operation {
         Type = type;
     }
 
-    public int getMontant() {
+    public double getMontant() {
         return Montant;
     }
 
