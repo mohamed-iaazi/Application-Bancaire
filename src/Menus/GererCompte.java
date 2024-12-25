@@ -1,11 +1,12 @@
 package Menus;
 
 import Interfaces.OnSelectedListnner;
+import Services.Compte;
 import Utils.Input;
 
 import static Utils.Colors.*;
 
-public class GererCompte  implements OnSelectedListnner {
+public class GererCompte  extends Compte implements OnSelectedListnner {
     public static void Menu()  {
         int choix = 0;
 
@@ -48,10 +49,10 @@ public class GererCompte  implements OnSelectedListnner {
     public void Select(int Menu) {
         Services.Compte compte=new Services.Compte();
         switch (Menu){
-            case 1 -> compte.Ajouter();
-            case 2 -> compte.Afficher();
-            case 3 -> compte.supprimer();
-            case 4 -> compte.Modifier();
+            case 1 -> Ajouter();
+            case 2 -> Afficher();
+            case 3 -> supprimer();
+            case 4 -> Modifier();
             case 5 ->  // To get BAck To main Menu
                 System.out.println(Blue+"\n\n  Retour au principal ! \n\n"+Reset);
 
