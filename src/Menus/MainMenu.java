@@ -8,7 +8,7 @@ import static Utils.Colors.*;
 public class MainMenu   implements OnSelectedListnner  {
 
 
-    public static void Menu()  throws Exception {
+    public static void Menu()   {
 
 
 
@@ -52,11 +52,11 @@ public class MainMenu   implements OnSelectedListnner  {
     }
 
     @Override
-    public void Select(int Menu) throws Exception {
+    public void Select(int Menu)  {
 
         switch (Menu){
-            case 1 -> GererCompte.Menu();
-            case 2 -> GererClient.Menu();
+            case 1 -> GererClient.Menu();
+            case 2 -> GererCompte.Menu();
             case 3 -> GererOperation.Menu();
             case 4 -> Filtrage.Menu();
             case 5 -> { }
