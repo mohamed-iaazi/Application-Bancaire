@@ -2,18 +2,18 @@ package Model;
 
 public class CompteEpargne  extends Compte{
 
-    private  int tauxInteret;
+    private  double tauxInteret;
 
-    public CompteEpargne(int numero, double solde, Client proprietaire, int tauxInteret) {
+    public CompteEpargne(int numero, double solde, Client proprietaire, double tauxInteret) {
         super(numero, solde, proprietaire);
         this.tauxInteret = tauxInteret;
     }
 
-    public int getTauxInteret() {
+    public double getTauxInteret() {
         return tauxInteret;
     }
 
-    public void setTauxInteret(int tauxInteret) {
+    public void setTauxInteret(double tauxInteret) {
         this.tauxInteret = tauxInteret;
     }
 }
