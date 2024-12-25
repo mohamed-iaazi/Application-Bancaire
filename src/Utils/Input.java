@@ -1,7 +1,11 @@
 package Utils;
 
 import Model.Client;
+import Model.Operation;
+import database.Historique;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -23,11 +27,24 @@ public  class Input {
         return scanner.nextLine();
     }
 
-    public static boolean clientValidation(){
-
-        return true;
+    public static int clientValidation(String ClientName){
+        int index=-1;
+        for (int i = 0; i < getClientList().size(); i++) {
+            if (ClientName.equals(getClientList().get(i).getName())){
+                 index=i;
+            }
+        }
+        return index;
 
     }
 
+ public  static  void setDate(String compteType,double montant){
+        LocalDate myObj = LocalDate.now();
+        Long  year= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("yyyyy")));
+        Long  month= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("mm")));
+        Long  day= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("dd")));
 
+
+     Historique.getOpereation().add(new Operation(compteType,));
+    }
 }
