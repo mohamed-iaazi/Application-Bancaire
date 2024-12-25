@@ -8,8 +8,8 @@ public  class Input {
 
 
     public static boolean EmailValidor(String email){
-        String regex="^[A-Z0-9a-z+.-_]+@[a-zA-Z+\\.]$";
-        return Pattern.matches(email,regex);
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        return Pattern.matches(regex,email);
     }
 
     public static String GetInput(){
