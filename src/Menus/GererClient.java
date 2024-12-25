@@ -2,6 +2,7 @@ package Menus;
 
 
 import Interfaces.OnSelectedListnner;
+import Services.Client;
 import Utils.Input;
 
 import static Utils.Colors.*;
@@ -12,7 +13,7 @@ import static Utils.Colors.*;
  #           by Medo          #
  ##############################  */
 
-public class GererClient implements OnSelectedListnner {
+public class GererClient  extends Client implements OnSelectedListnner {
 
     // CLient Menu  where u can chose what do u want to do
     public static void Menu()  {
@@ -59,10 +60,10 @@ public class GererClient implements OnSelectedListnner {
     public void Select(int Menu) {
         Services.Client  client=new Services.Client();
         switch (Menu){
-            case 1 -> client.Ajouter();
-            case 2 -> client.Afficher();
-            case 3 -> client.supprimer();
-            case 4 -> client.Modifier();
+            case 1 -> Ajouter();
+            case 2 -> Afficher();
+            case 3 -> supprimer();
+            case 4 -> Modifier();
             case 5 ->
                     System.out.println(Blue+"\n\n  Retour au  Principal ! \n\n"+Reset);
 
