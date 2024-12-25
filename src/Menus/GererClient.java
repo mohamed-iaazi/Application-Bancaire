@@ -33,7 +33,7 @@ public class GererClient implements OnSelectedListnner {
                                          2) Afficher les Clients 
                                          3) Supprimer un Client
                                          4) Modifier un Client info
-                                         5) Back To Main
+                                         5) Retour au  Principal
                             
                             
                             """+Reset);
@@ -47,7 +47,7 @@ public class GererClient implements OnSelectedListnner {
 
                     }
                     catch (NumberFormatException e){
-                        System.out.println(Red+"\n\n   Invalid Entry ! \n\n"+Reset);
+                        System.out.println(Red+"\n\n   Entree invalide ! \n\n"+Reset);
                     }
 
 
@@ -64,7 +64,7 @@ public class GererClient implements OnSelectedListnner {
             case 3 -> client.supprimer();
             case 4 -> client.Modifier();
             case 5 ->
-                System.out.println(Blue+"\n\n  Back To Main ! \n\n"+Reset);
+                    System.out.println(Blue+"\n\n  Retour au  Principal ! \n\n"+Reset);
 
 
         }
