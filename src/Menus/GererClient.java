@@ -17,9 +17,10 @@ public class GererClient implements OnSelectedListnner {
     // CLient Menu  where u can chose what do u want to do
     public static void Menu()  {
         int choix = 0;
-
                 while (choix != 5) {
                     System.out.println(Blue+"""
+                            
+                            
                             #############################################
                             #                                           #
                             #                                           #
@@ -43,6 +44,7 @@ public class GererClient implements OnSelectedListnner {
                         choix = Integer.parseInt(Input.GetInput());
                         OnSelectedListnner onSelectedListnner = new GererClient();
                         onSelectedListnner.Select(choix);
+
                     }
                     catch (NumberFormatException e){
                         System.out.println(Red+"\n\n   Invalid Entry ! \n\n"+Reset);
@@ -55,13 +57,14 @@ public class GererClient implements OnSelectedListnner {
 
     @Override
     public void Select(int Menu) {
-        Services.Client client=new Services.Client();
+        Services.Client  client=new Services.Client();
         switch (Menu){
             case 1 -> client.Ajouter();
             case 2 -> client.Afficher();
             case 3 -> client.supprimer();
             case 4 -> client.Modifier();
-            case 5 -> { }
+            case 5 ->
+                System.out.println(Blue+"\n\n  Back To Main ! \n\n"+Reset);
 
 
         }
