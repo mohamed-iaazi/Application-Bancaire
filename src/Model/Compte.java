@@ -3,10 +3,10 @@ package Model;
 public abstract  class   Compte {
 
     private  int Numero;
-    private  int Solde;
+    private  double Solde;
     private  Client proprietaire;
 
-    public Compte(int numero, int solde, Client proprietaire) {
+    public Compte(int numero, double solde, Client proprietaire) {
         Numero = numero;
         Solde = solde;
         this.proprietaire = proprietaire;
@@ -20,11 +20,11 @@ public abstract  class   Compte {
         Numero = numero;
     }
 
-    public int getSolde() {
+    public double getSolde() {
         return Solde;
     }
 
-    public void setSolde(int solde) {
+    public void setSolde(double solde) {
         Solde = solde;
     }
 
