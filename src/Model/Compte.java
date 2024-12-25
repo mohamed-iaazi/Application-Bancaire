@@ -1,6 +1,6 @@
 package Model;
 
-abstract  class   Compte {
+public abstract  class   Compte {
 
     private  int Numero;
     private  int Solde;
