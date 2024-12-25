@@ -94,7 +94,7 @@ public class Client implements Crud {
                 else {
                     Id=Id+1;
                 }
-
+                System.out.print(Green + "\n   Le client a été Ajouter avec succès " + Reset);
                 ClientList.add(new Model.Client(Id,name,Last,Email,Address));
             } else if (!Input.EmailValidor(Email)) {
                 System.out.println(Red+"   Email Non Valide  "+Reset);
