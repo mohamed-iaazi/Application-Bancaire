@@ -1,7 +1,13 @@
 package Utils;
 
+import Model.Client;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+import static Services.Client.getClientList;
+import static Utils.Colors.*;
 
 public  class Input {
 
@@ -15,6 +21,12 @@ public  class Input {
     public static String GetInput(){
         Scanner scanner=new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    public static boolean clientValidation(){
+
+        return true;
+
     }
 
 
