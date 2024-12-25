@@ -27,7 +27,7 @@ public class GererOperation implements OnSelectedListnner {
                                  2) Fait un retrait
                                  3) Fait un dépôts
                                  4) Historique 
-                                 5) Back To Main
+                                 5) Retour au  Principal
                     
                     
                     """+Reset);
@@ -39,7 +39,7 @@ public class GererOperation implements OnSelectedListnner {
                 onSelectedListnner.Select(choix);
             }
             catch (NumberFormatException e){
-                System.out.println(Red+"\n\n   Invalid Entry ! \n\n"+Reset);
+                System.out.println(Red+"\n\n   Entree invalide ! \n\n"+Reset);
             }
         }
     }
@@ -52,7 +52,7 @@ public class GererOperation implements OnSelectedListnner {
             case 3 ->Depots();
             case 4 -> Afficher();
             case 5 ->  // To get BAck To main Menu
-                    System.out.println(Blue+"\n\n  Back To Main ! \n\n"+Reset);
+                    System.out.println(Blue+"\n\n  Retour au  Principal ! \n\n"+Reset);
         }
     }
 }
