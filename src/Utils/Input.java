@@ -38,13 +38,8 @@ public  class Input {
 
     }
 
- public  static  void setDate(String compteType,double montant){
+ public  static  void setDate(String compteType,double montant,int Id){
         LocalDate myObj = LocalDate.now();
-        Long  year= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("yyyyy")));
-        Long  month= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("mm")));
-        Long  day= Long.valueOf(myObj.format(DateTimeFormatter.ofPattern("dd")));
-
-
-     Historique.getOpereation().add(new Operation(compteType,));
+     Historique.getOpereation().add(new Operation(compteType,montant,myObj,Id));
     }
 }

@@ -1,13 +1,15 @@
 package Model;
 
+import java.time.LocalDate;
+
 public class Operation {
 
     private  String Type;
     private  double Montant;
-    private  int Date;
+    private LocalDate Date;
     private  int CompteAssocie;
 
-    public Operation(String type, int montant, int date, int compteAssocie) {
+    public Operation(String type, double montant, LocalDate date, int compteAssocie) {
         Type = type;
         Montant = montant;
         Date = date;
@@ -30,11 +32,11 @@ public class Operation {
         Montant = montant;
     }
 
-    public int getDate() {
+    public LocalDate getDate() {
         return Date;
     }
 
-    public void setDate(int date) {
+    public void setDate(LocalDate date) {
         Date = date;
     }
 

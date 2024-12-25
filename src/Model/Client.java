@@ -1,11 +1,16 @@
 package Model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Client {
     private  int Id;
     private  String Name;
     private String Prenom;
     private String Email;
     private  String Adresse;
+
+
 
     public Client(int id, String name, String prenom, String email, String adresse) {
         Id = id;
@@ -54,4 +59,7 @@ public class Client {
     public void setAdresse(String adresse) {
         Adresse = adresse;
     }
+
+
+
 }

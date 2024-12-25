@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static Utils.Colors.*;
 
-public class Client implements Crud {
+public class Client  implements Crud {
     private static ArrayList<Model.Client> ClientList=new ArrayList<>();
     private static int Id;
 

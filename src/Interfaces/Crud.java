@@ -1,8 +1,8 @@
 package Interfaces;
 
 public interface Crud {
-    void supprimer();
-    void Afficher();
-    void  Ajouter();
-    void  Modifier();
+      void supprimer();
+      void Afficher();
+     void  Ajouter();
+     void  Modifier();
 }
