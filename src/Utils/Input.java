@@ -38,8 +38,8 @@ public  class Input {
 
     }
 
- public  static  void setDate(String compteType,double montant,int Id){
+    public  static  void setDate(String compteType,double montant,int Index){
         LocalDate myObj = LocalDate.now();
-     Historique.getOpereation().add(new Operation(compteType,montant,myObj,Id));
+        Historique.getOpereation().add(new Operation(compteType,montant,myObj,Index));
     }
 }
