@@ -1,10 +1,12 @@
 package Model;
 
+import java.time.LocalDate;
+
 public class CompteCourant extends Compte {
     private  double FraisBancaires;
 
-    public CompteCourant(int numero, double solde, int proprietaire, double fraisBancaires) {
-        super(numero, solde, proprietaire);
+    public CompteCourant(int numero, double solde, int proprietaire, LocalDate date, double fraisBancaires) {
+        super(numero, solde, proprietaire,date);
         FraisBancaires = fraisBancaires;
     }
 
@@ -15,4 +17,6 @@ public class CompteCourant extends Compte {
     public void setFraisBancaires(double fraisBancaires) {
         FraisBancaires = fraisBancaires;
     }
+
+
 }

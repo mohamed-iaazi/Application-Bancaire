@@ -1,15 +1,27 @@
 package Model;
 
+import java.time.LocalDate;
+
 public abstract  class   Compte {
 
     private  int Numero;
     private  double Solde;
     private  int proprietaire;
+    private LocalDate date;
 
-    public Compte(int numero, double solde, int proprietaire) {
+    public Compte(int numero, double solde, int proprietaire, LocalDate date) {
         Numero = numero;
         Solde = solde;
         this.proprietaire = proprietaire;
+        this.date=date;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public int getNumero() {

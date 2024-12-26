@@ -1,9 +1,11 @@
 package Utils;
 
-import Model.Client;
 import Model.Operation;
+import Services.Client;
+import Services.Compte;
 import database.Historique;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -27,19 +29,9 @@ public  class Input {
         return scanner.nextLine();
     }
 
-    public static int clientValidation(String ClientName){
-        int index=-1;
-        for (int i = 0; i < getClientList().size(); i++) {
-            if (ClientName.equals(getClientList().get(i).getName())){
-                 index=i;
-            }
-        }
-        return index;
-
+    public  static LocalDate GetDate(){
+        LocalDate localDate=LocalDate.now();
+        return  localDate;
     }
 
-    public  static  void setDate(String compteType,double montant,int Index){
-        LocalDate myObj = LocalDate.now();
-        Historique.getOpereation().add(new Operation(compteType,montant,myObj,Index));
-    }
 }

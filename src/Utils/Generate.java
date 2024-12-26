@@ -17,10 +17,9 @@ public class Generate {
         boolean taken=false;
         do {
             int genrateNum = random.nextInt(100000000);
-
             numero=genrateNum;
             if (!Client.getClientList().isEmpty()) {
-                for (Model.Compte compte : Compte.getCompteArrayList()) {
+                for (Model.Compte compte : Compte.getCompteLists()) {
                     if (compte.getNumero() == genrateNum) {
                         System.out.println(Red+"  # Génération automatique de numéros  .....  "+Reset);
                         taken=true;
