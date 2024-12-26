@@ -5,6 +5,7 @@ import Model.CompteCourant;
 import Model.CompteEpargne;
 import Utils.Generate;
 import Utils.Input;
+import database.Historique;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,52 +34,68 @@ public class Compte implements Crud {
     @Override
     public void Afficher() {
 
+        if (!compteArrayList.isEmpty()) {
+            for (Model.Compte client : compteArrayList) {
+                System.out.print(Green+"\n\n-------------Id "+Reset+(client.getNumero())+Green+" -------------\n"+Reset
+                        +Yellow+ "\n      Client Owner : "+ Reset +Client.getClientList().get(client.getProprietaire()).getName()
+                        +Yellow+ "\n      Solde : "+Reset+client.getSolde()
+                        +Yellow+ "\n      Creation Date : "+Reset+Historique.getOpereation().get(client.getProprietaire()).getDate()
+                        +Yellow+ "\n      Compte Type : "+Reset+Historique.getOpereation().get(client.getProprietaire()).getType()
+                        +Green+  "\n-------------------------------"+Reset
+                );
+            }
+        }
     }
 
     @Override
     public void Ajouter() {
-    int ClientId=0,compteType;
-    double solde;
-    String clientName;
-    if (!Client.getClientList().isEmpty()) {
-        do {
-            System.out.print(Yellow + "\n   Entrez le nom du client pour lui associer un compte : " + Reset);
-            clientName = Input.GetInput();
-            if (Input.clientValidation(clientName)<0) {
-                System.out.println(Red + "\n   Ops Aucune Client à associer Avec cest Nome !   \n" + Reset);
+        int ClientId,compteType;
+        double solde;
+        String clientName;
+        if (!Client.getClientList().isEmpty()) {
+            do {
+                System.out.print(Yellow + "\n   Entrez le nom du client pour lui associer un compte : " + Reset);
+                clientName = Input.GetInput();
+                if (Input.clientValidation(clientName)<0) {
+                    System.out.println(Red + "\n   Ops Aucune Client à associer Avec cest Nome !   \n" + Reset);
+
+                }
+            } while (Input.clientValidation(clientName)<0);
+            ClientId=Input.clientValidation(clientName)-1;
+            System.out.println(Yellow+"\n----Type de compte---------   \n"+Reset);
+            System.out.println(Green+"    1) CompteCourant   "+Reset);
+            System.out.println(Green+"    2) CompteEpargne  "+Reset);
+            System.out.print(Blue+"\n  Choisissez le type de compte : "+Reset);
+            try {
+                compteType = Integer.parseInt(Input.GetInput());
+                System.out.print(Blue+"\n   Entrez le Solde initial   : "+Reset);
+                solde= Double.parseDouble(Input.GetInput());
+                if (compteType==1){
+                    System.out.print(Green + "\n    Votre CompteCourant a été Ajouter avec succès " + Reset);
+                    Input.setDate("CompteCourant",solde,ClientId);
+                    compteArrayList.add(ClientId,new CompteCourant(
+                            Generate.genarateNumero(),solde, ClientId,CalculeFraisBancaires(ClientId)));
+                } else if (compteType==2)
+                {
+                    System.out.print(Green + "\n    Votre CompteEpargne a été Ajouter avec succès " + Reset);
+                    Input.setDate("CompteEpargne",solde,ClientId);
+                    compteArrayList.add(ClientId,new CompteEpargne(
+                            Generate.genarateNumero(),solde,ClientId,TauxInteret()));
+                }
+                else {
+                    System.out.println(Yellow + "\n   Invalide Type entree !   \n" + Reset);
+                }
 
             }
-            else
-            {
-                ClientId=Input.clientValidation(clientName);
-            }
-        } while (Input.clientValidation(clientName)<0);
-        System.out.println(Yellow+"\n----Type de compte---------   "+Reset);
-        System.out.println(Green+"    1) CompteCourant   "+Reset);
-        System.out.println(Green+"    2) CompteEpargne  "+Reset);
-        System.out.print(Yellow+"  Choisissez le type de compte : "+Reset);
-        try {
-            compteType = Integer.parseInt(Input.GetInput());
-            System.out.print(Yellow+"\n   Entrez le Solde initial   : "+Reset);
-            solde= Double.parseDouble(Input.GetInput());
-            if (compteType==1){
-                Input.setDate("CompteCourant",solde,ClientId);
-                compteArrayList.add(Input.clientValidation(clientName),new CompteCourant(Generate.genarateNumero(),solde,Input.clientValidation(clientName),CalculeFraisBancaires()));
-            }
-            else {
-                compteArrayList.add(Input.clientValidation(clientName),new CompteEpargne(Generate.genarateNumero(),solde,Input.clientValidation(clientName),TauxInteret()));
+            catch (NumberFormatException e){
+                System.out.println(Red + "\n\n   Invalide entree !  " +e+ Reset);
             }
 
         }
-        catch (NumberFormatException e){
-            System.out.println(Red + "\n   Invalide entree !   \n" + Reset);
+        else {
+            System.out.println(Red + "\n   Ops Aucune Client à associer !   \n" + Reset);
+
         }
-
-    }
-    else {
-        System.out.println(Red + "\n   Ops Aucune Client à associer !   \n" + Reset);
-
-    }
 
     }
 
@@ -87,8 +104,7 @@ public class Compte implements Crud {
 
     }
 
-    private double CalculeFraisBancaires(){
-
+    private double CalculeFraisBancaires(int Id){
         return 0;
     }
 
