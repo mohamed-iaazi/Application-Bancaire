@@ -7,13 +7,15 @@ public class Operation {
     private  String Type;
     private  double Montant;
     private LocalDate Date;
-    private  int CompteAssocie;
+    private  String senter;
+    private  String receiver;
 
-    public Operation(String type, double montant, LocalDate date, int compteAssocie) {
+    public Operation(String type, double montant, LocalDate date, String senter, String receiver) {
         Type = type;
         Montant = montant;
         Date = date;
-        CompteAssocie = compteAssocie;
+        this.senter = senter;
+        this.receiver = receiver;
     }
 
     public String getType() {
@@ -28,7 +30,7 @@ public class Operation {
         return Montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(double montant) {
         Montant = montant;
     }
 
@@ -40,11 +42,19 @@ public class Operation {
         Date = date;
     }
 
-    public int getCompteAssocie() {
-        return CompteAssocie;
+    public String getSenter() {
+        return senter;
     }
 
-    public void setCompteAssocie(int compteAssocie) {
-        CompteAssocie = compteAssocie;
+    public void setSenter(String senter) {
+        this.senter = senter;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 }
