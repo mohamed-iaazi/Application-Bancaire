@@ -33,7 +33,7 @@ public class Filtrage  implements OnSelectedListnner{
 
 
                 choix = Integer.parseInt(Input.GetInput());
-                OnSelectedListnner onSelectedListnner = new GererClient();
+                OnSelectedListnner onSelectedListnner = new Filtrage();
                 onSelectedListnner.Select(choix);
 
             }

@@ -9,6 +9,9 @@ public class CompteCourant extends Compte {
         super(numero, solde, proprietaire,date);
         FraisBancaires = fraisBancaires;
     }
+    public  CompteCourant(){
+
+    }
 
     public double getFraisBancaires() {
         return FraisBancaires;

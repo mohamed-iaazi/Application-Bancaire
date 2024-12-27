@@ -21,6 +21,7 @@ public class Operation {
             String senderNome = Input.GetInput();
             System.out.print("   Entrez l Nome client pour le destinataire : ");
             String receiverNome = Input.GetInput();
+
             if (Input.ClientIsAvailable(senderNome) >= 0 && Input.ClientIsAvailable(receiverNome) >= 0) {
 
                 if (Input.AccountIsAvailable(senderNome)<0|| Input.AccountIsAvailable(receiverNome)<0)
@@ -95,6 +96,7 @@ public class Operation {
         boolean error = false;
         System.out.print("   Entrez l Nome client  : ");
         String senderNome = Input.GetInput();
+
         if (Input.ClientIsAvailable(senderNome) >= 0 ) {
 
             if (Input.AccountIsAvailable(senderNome)<0)

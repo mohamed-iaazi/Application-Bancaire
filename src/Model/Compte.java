@@ -15,7 +15,9 @@ public abstract  class   Compte {
         this.proprietaire = proprietaire;
         this.date=date;
     }
+    public  Compte(){
 
+    }
     public LocalDate getDate() {
         return date;
     }
