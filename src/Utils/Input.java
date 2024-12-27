@@ -1,19 +1,13 @@
 package Utils;
 
-import Model.Operation;
-import Services.Client;
-import Services.Compte;
-import database.Historique;
 
-import java.time.Duration;
+import Services.Client;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-import static Services.Client.getClientList;
-import static Utils.Colors.*;
 
 public  class Input {
 
@@ -33,5 +27,18 @@ public  class Input {
         LocalDate localDate=LocalDate.now();
         return  localDate;
     }
+
+    public static int ClientIsAvailable(String Name){
+        int index =-1;
+        for (int i = 0; i < Client.getClientList().size(); i++) {
+            if (Objects.equals(Name, Client.getClientList().get(i).getName())){
+
+                index=i;
+            }
+        }
+
+        return index;
+    }
+
 
 }
