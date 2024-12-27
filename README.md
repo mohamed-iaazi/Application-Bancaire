@@ -1,4 +1,5 @@
-# 💳 Bank Application
+# 💳 Console Bank Application
+<img width="216" alt="image" src="https://github.com/user-attachments/assets/ae0f96f9-27ee-4715-a12f-18ab477de5c0" />
 
 ## 📄 Overview
 A Java-based console application to manage banking operations including clients, accounts, and transactions.
