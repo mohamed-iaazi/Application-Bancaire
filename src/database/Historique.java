@@ -13,5 +13,11 @@ public class Historique {
 
     public static void Afficher() {
 
+        if (!Services.Operation.getOperations().isEmpty()) {
+            for (Operation operation : Services.Operation.getOperations()) {
+                System.out.println(Blue + operation.toString() + Reset);
+            }
+        }
+        else System.err.println("\n\n  No Operation Pour Afficher");
     }
 }
