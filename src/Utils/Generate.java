@@ -1,5 +1,6 @@
 package Utils;
 
+import Model.CompteEpargne;
 import Services.Client;
 import Services.Compte;
 
@@ -21,9 +22,14 @@ public class Generate {
             if (!Client.getClientList().isEmpty()) {
                 for (Model.Compte compte : Compte.getCompteLists()) {
                     if (compte.getNumero() == genrateNum) {
-                        System.out.println(Red+"  # Génération automatique de numéros  .....  "+Reset);
-                        taken=true;
-                        break;
+                        for (CompteEpargne compteEpargne: Compte.getCompteEpargneArrayLists()){
+                            if (compteEpargne.getNumero()==genrateNum){
+                                System.out.println(Red+"  # Génération automatique de numéros  .....  "+Reset);
+                                taken=true;
+                                break;
+                            }
+                        }
+
                     }
                 }
             }
