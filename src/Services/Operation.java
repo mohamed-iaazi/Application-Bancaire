@@ -11,6 +11,10 @@ public class Operation {
 
    private static ArrayList<Model.Operation> operations=new ArrayList<>();
 
+    public static ArrayList<Model.Operation> getOperations() {
+        return operations;
+    }
+
     public static void FaitVairment() {
             boolean error = false;
             System.out.print("   Entrez l Nome client pour l'expéditeur : ");
@@ -21,7 +25,7 @@ public class Operation {
 
                 if (Input.AccountIsAvailable(senderNome)<0|| Input.AccountIsAvailable(receiverNome)<0)
                 {
-                    System.out.print(Red+"\n\n   Aucun Compte associé à ce nom "+Reset);
+                    System.err.print("\n\n   Aucun Compte associé à ce nom ");
                     return;
                 }
                 System.out.print("   Entrez le montant  : ");
@@ -30,7 +34,7 @@ public class Operation {
                         double montant = Integer.parseInt(Input.GetInput());
                         if (montant <= 0) {
                             error = true;
-                            System.out.println(Red + "   Montant Non Valide  " + Reset);
+                            System.err.println( "   Montant Non Valide  " );
                         } else {
 
                             if (DecreaseVairmentMontant((int) montant, Input.ClientIsAvailable(senderNome))) {
@@ -39,12 +43,12 @@ public class Operation {
                             }
                         }
                     } catch (NumberFormatException e) {
-                        System.out.println(Red + "   Montant Non Valide  " + Reset);
+                        System.err.println( "   Montant Non Valide  " );
                         error = true;
                     }
                 } while (error);
             } else {
-                System.out.print(Red+"\n\n   Aucun client associé à ce nom "+Reset);
+                System.err.println("\n\n   Aucun client associé à ce nom ");
 
             }
 
@@ -59,16 +63,16 @@ public class Operation {
 
             if (Input.AccountIsAvailable(senderNome)<0)
             {
-                System.out.print(Red+"\n\n   Aucun Compte associé à ce nom "+Reset);
+                System.err.print("\n\n   Aucun Compte associé à ce nom ");
                 return;
             }
-            System.out.print("   Entrez le montant  Retrait  : ");
+            System.out.print("\n   Entrez le montant  Retrait  : ");
             do {
                 try {
                     double montant = Integer.parseInt(Input.GetInput());
                     if (montant <= 0) {
                         error = true;
-                        System.out.println(Red + "   Montant Non Valide  " + Reset);
+                        System.err.println( "\n\n   Montant Non Valide  " );
                     } else {
 
                         if (DecreaseVairmentMontant((int) montant, Input.ClientIsAvailable(senderNome))) {
@@ -77,12 +81,12 @@ public class Operation {
                         }
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println(Red + "   Montant Non Valide  " + Reset);
+                    System.err.println( "   Montant Non Valide  " );
                     error = true;
                 }
             } while (error);
         } else {
-            System.out.print(Red+"\n\n   Aucun client associé à ce nom "+Reset);
+            System.err.print("\n\n   Aucun client associé à ce nom ");
 
         }
     }
@@ -95,28 +99,28 @@ public class Operation {
 
             if (Input.AccountIsAvailable(senderNome)<0)
             {
-                System.out.print(Red+"\n\n   Aucun Compte associé à ce nom "+Reset);
+                System.err.print("\n\n   Aucun Compte associé à ce nom ");
                 return;
             }
-            System.out.print("   Entrez le montant  : ");
+            System.out.print("\n   Entrez le montant  : ");
             do {
                 try {
                     double montant = Integer.parseInt(Input.GetInput());
                     if (montant <= 0) {
                         error = true;
-                        System.out.println(Red + "   Montant Non Valide  " + Reset);
+                        System.err.println( "\n\n   Montant Non Valide  " );
                     } else {
 
                         AddVairmentMontant((int) montant,Input.ClientIsAvailable(senderNome));
-                        operations.add(new Model.Operation("Retrait ",montant,Input.GetDate(),senderNome,senderNome));
+                        operations.add(new Model.Operation("Depots ",montant,Input.GetDate(),senderNome,senderNome));
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println(Red + "   Montant Non Valide  " + Reset);
+                    System.err.println( "\n\n   Montant Non Valide  "+e );
                     error = true;
                 }
             } while (error);
         } else {
-            System.out.print(Red+"\n\n   Aucun client associé à ce nom "+Reset);
+            System.err.print("\n\n   Aucun client associé à ce nom ");
 
         }
     }
@@ -135,14 +139,14 @@ public class Operation {
             return true;
         }
         else {
-            System.out.print(Red + "\n  Votre solde est insuffisant " + Reset);
+            System.err.print( "\n  Votre solde est insuffisant " );
             return  false;
         }
     }
     private static void RetraitMontant(int montant, int id) {
         CompteCourant compteCourant=Compte.getcompteCourantList().get(id);
         compteCourant.setSolde(compteCourant.getSolde()-montant);
-        System.out.print(Red + "\n  Votre Retrait a été effectué avec succès " + Reset);
+        System.err.printf( "\n  Votre Retrait -%d a été effectué avec succès ",montant );
     }
 
 }

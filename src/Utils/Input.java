@@ -2,8 +2,10 @@ package Utils;
 
 
 import Services.Client;
+import Services.Compte;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -39,6 +41,18 @@ public  class Input {
 
         return index;
     }
+    public static int AccountIsAvailable(String Name){
+        int index =-1;
+        for (int i = 0; i < Compte.getcompteCourantList().size(); i++) {
+            if (Objects.equals(Name, Client.getClientList().get(i).getName())){
+
+                index=i;
+            }
+        }
+
+        return index;
+    }
+
 
 
 }

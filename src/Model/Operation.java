@@ -57,4 +57,15 @@ public class Operation {
     public void setReceiver(String receiver) {
         this.receiver = receiver;
     }
+
+    @Override
+    public String toString() {
+        return "\nOperation{" +
+                "\nType= " + Type +
+                "\n, Montant= " + Montant +
+                "\n, Date=" + Date +
+                "\n, sender=" + senter +
+                "\n, receiver= " + receiver +"\n"+
+                '}';
+    }
 }
