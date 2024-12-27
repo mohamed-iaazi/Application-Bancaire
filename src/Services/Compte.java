@@ -12,6 +12,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Objects;
 import static Utils.Colors.*;
+import static Utils.Input.ClientIsAvailable;
 
 public class Compte implements Crud {
 
@@ -109,17 +110,6 @@ public class Compte implements Crud {
         }
 
 
-    public int ClientIsAvailable(String Name){
-   int index =-1;
-        for (int i = 0; i < Client.getClientList().size(); i++) {
-            if (Objects.equals(Name, Client.getClientList().get(i).getName())){
-
-                index=i;
-            }
-        }
-
-        return index;
-    }
      public void CalculeFrais(int  Id){
          for (int i = 0; i < compteCourantArrayLists.size() ; i++) {
              if (compteCourantArrayLists.get(i).getProprietaire()==Id){
@@ -146,13 +136,13 @@ public class Compte implements Crud {
                  LocalDate creatingDate=compteEpargneArrayLists.get(i).getDate();
                  LocalDate nowDate=LocalDate.now();
                  long daysBetween = ChronoUnit.DAYS.between(creatingDate, nowDate);
-                 if (daysBetween>335||daysBetween==0){
+                 if (daysBetween>335){
                      compteEpargneArrayLists.get(i).setTauxInteret(500);
                      compteEpargneArrayLists.get(i).setSolde(compteEpargneArrayLists.get(i).getSolde()+500);
                      System.out.print(Red + "\n\n    les tauxInteret ont été ajouter avec succès +500 Dh \n\n" + Reset);
                  }
                  else {
-                     System.out.print(Green + "\n\n   Acune  tauxInteret  Pour ajouter  " + Reset);
+                     System.out.print(Green + "\n\n   Aucune  tauxInteret  Pour ajouter  " + Reset);
                  }
              }
          }
