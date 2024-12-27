@@ -50,9 +50,9 @@ public class GererOperation implements OnSelectedListnner {
 
         if (!Client.getClientList().isEmpty()) {
             switch (Menu) {
-                case 1 -> Virment();
-                case 2 -> Retrait();
-                case 3 -> Depots();
+                case 1 -> FaitVairment();
+                case 2 -> FaitRetrait();
+                case 3 -> FaitDepots();
                 case 4 -> Afficher();
                 case 5 ->  // To get BAck To main Menu
                         System.out.println(Blue + "\n\n  Retour au  Principal ! \n\n" + Reset);
