@@ -43,19 +43,7 @@ public class Compte implements Crud {
     @Override
     public void Afficher() {
         if (!compteCourantArrayLists.isEmpty()) {
-            for (int i = 0; i < compteCourantArrayLists.size(); i++) {
-
-                System.out.println(Green+"\n\n-------------Id "+Reset+(compteCourantArrayLists.get(i).getProprietaire()+1)+Green+" -------------\n"+Reset
-                        +Yellow+ "\n      Client Owner : "+ Reset +Client.getClientList().get(compteCourantArrayLists.get(i).getProprietaire()).getName()
-                        +Yellow+ "\n      Solde : "+Reset+compteCourantArrayLists.get(i).getSolde()+" DH"
-                        +Yellow+ "\n      fraisBancaire : "+Reset+compteCourantArrayLists.get(i).getFraisBancaires()
-                        +Yellow+ "\n      Creation Date : "+Reset+compteCourantArrayLists.get(i).getDate()
-                        +Yellow+ "\n      Compte Type : "+Reset+" compteCourant "
-                        +Green+  "\n-------------------------------"+Reset
-                );
-
-
-            }
+         DisplayCompteCourant();
         }
 
         else {
@@ -63,19 +51,7 @@ public class Compte implements Crud {
         }
 
         if (!compteEpargneArrayLists.isEmpty()) {
-            for (int i = 0; i < compteEpargneArrayLists.size(); i++) {
-
-                System.out.println(Green+"\n\n-------------Id "+Reset+(compteEpargneArrayLists.get(i).getProprietaire()+1)+Green+" -------------\n"+Reset
-                        +Blue+ "\n      Client Owner : "+ Reset +Client.getClientList().get(compteEpargneArrayLists.get(i).getProprietaire()).getName()
-                        +Blue+ "\n      Solde : "+Reset+compteEpargneArrayLists.get(i).getSolde()+" DH"
-                        +Blue+ "\n      fraisBancaire : "+Reset+compteEpargneArrayLists.get(i).getTauxInteret()
-                        +Blue+ "\n      Creation Date : "+Reset+compteEpargneArrayLists.get(i).getDate()
-                        +Blue+ "\n      Compte Type : "+Reset+" compteEpargne "
-                        +Green+  "\n-------------------------------"+Reset
-                );
-
-
-            }
+          DisplayCompteEpargne();
         }
 
         else {
@@ -173,14 +149,47 @@ public class Compte implements Crud {
                  if (daysBetween>335||daysBetween==0){
                      compteEpargneArrayLists.get(i).setTauxInteret(500);
                      compteEpargneArrayLists.get(i).setSolde(compteEpargneArrayLists.get(i).getSolde()+500);
-                     System.out.print(Red + "\n\n    les taux bancaires ont été ajouter avec succès +500 Dh \n\n" + Reset);
+                     System.out.print(Red + "\n\n    les tauxInteret ont été ajouter avec succès +500 Dh \n\n" + Reset);
                  }
                  else {
-                     System.out.print(Green + "\n\n   Acune  taux bancaires Pour ajouter  " + Reset);
+                     System.out.print(Green + "\n\n   Acune  tauxInteret  Pour ajouter  " + Reset);
                  }
              }
          }
 
+     }
+
+     public void DisplayCompteEpargne(){
+         for (int i = 0; i < compteEpargneArrayLists.size(); i++) {
+
+             System.out.println(Green+"\n\n-------------Id "+Reset+(compteEpargneArrayLists.get(i).getProprietaire()+1)+Green+" -------------\n"+Reset
+                     +Blue+ "\n      Client Owner : "+ Reset +Client.getClientList().get(compteEpargneArrayLists.get(i).getProprietaire()).getName()
+                     +Blue+ "\n      Solde : "+Reset+compteEpargneArrayLists.get(i).getSolde()+" DH"
+                     +Blue+ "\n      tauxInteret : "+Reset+compteEpargneArrayLists.get(i).getTauxInteret()
+                     +Blue+ "\n      Creation Date : "+Reset+compteEpargneArrayLists.get(i).getDate()
+                     +Blue+ "\n      Compte Type : "+Reset+" compteEpargne "
+                     +Green+  "\n-------------------------------"+Reset
+             );
+
+
+         }
+
+     }
+
+     public  void DisplayCompteCourant(){
+         for (int i = 0; i < compteCourantArrayLists.size(); i++) {
+
+             System.out.println(Green+"\n\n-------------Id "+Reset+(compteCourantArrayLists.get(i).getProprietaire()+1)+Green+" -------------\n"+Reset
+                     +Yellow+ "\n      Client Owner : "+ Reset +Client.getClientList().get(compteCourantArrayLists.get(i).getProprietaire()).getName()
+                     +Yellow+ "\n      Solde : "+Reset+compteCourantArrayLists.get(i).getSolde()+" DH"
+                     +Yellow+ "\n      fraisBancaire : "+Reset+compteCourantArrayLists.get(i).getFraisBancaires()
+                     +Yellow+ "\n      Creation Date : "+Reset+compteCourantArrayLists.get(i).getDate()
+                     +Yellow+ "\n      Compte Type : "+Reset+" compteCourant "
+                     +Green+  "\n-------------------------------"+Reset
+             );
+
+
+         }
      }
 
 
