@@ -20,7 +20,7 @@ public class Compte implements Crud {
         private static ArrayList<CompteEpargne> compteEpargneArrayLists = new ArrayList<>();
         static double fraisBancairs,tauxInteret;
 
-    public static ArrayList<CompteCourant> getCompteLists() {
+    public static ArrayList<CompteCourant> getcompteCourantList() {
         return compteCourantArrayLists;
     }
 

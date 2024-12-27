@@ -20,7 +20,7 @@ public class Generate {
             int genrateNum = random.nextInt(100000000);
             numero=genrateNum;
             if (!Client.getClientList().isEmpty()) {
-                for (Model.Compte compte : Compte.getCompteLists()) {
+                for (Model.Compte compte : Compte.getcompteCourantList()) {
                     if (compte.getNumero() == genrateNum) {
                         for (CompteEpargne compteEpargne: Compte.getCompteEpargneArrayLists()){
                             if (compteEpargne.getNumero()==genrateNum){
