@@ -61,5 +61,14 @@ public class Client {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "Client \n{" +
+                "\nId=" + Id +
+                "\n, Name='" + Name + '\'' +
+                "\n, Prenom='" + Prenom + '\'' +
+                "\n, Email='" + Email + '\'' +
+                "\n, Adresse='" + Adresse + "\n" +
+                '}';
+    }
 }
