@@ -3,9 +3,13 @@ package Services;
 import Model.CompteCourant;
 import Utils.Input;
 
+import java.util.ArrayList;
+
 import static Utils.Colors.*;
 
 public class Operation {
+
+   private static ArrayList<Model.Operation> operations=new ArrayList<>();
 
     public static void Virment() {
             boolean error = false;
@@ -14,17 +18,24 @@ public class Operation {
             System.out.print("   Entrez l Nome client pour le destinataire : ");
             String receiverNome = Input.GetInput();
             if (Input.ClientIsAvailable(senderNome) >= 0 && Input.ClientIsAvailable(receiverNome) >= 0) {
+
+                if (Input.AccountIsAvailable(senderNome)<0|| Input.AccountIsAvailable(receiverNome)<0)
+                {
+                    System.out.print(Red+"\n\n   Aucun Compte associé à ce nom "+Reset);
+                    return;
+                }
                 System.out.print("   Entrez le montant  : ");
                 do {
                     try {
-                        int montant = Integer.parseInt(Input.GetInput());
+                        double montant = Integer.parseInt(Input.GetInput());
                         if (montant <= 0) {
                             error = true;
                             System.out.println(Red + "   Montant Non Valide  " + Reset);
                         } else {
 
-                            if (DecreaseVairmentMontant(montant, Input.ClientIsAvailable(senderNome))) {
-                                AddVairmentMontant(montant, Input.ClientIsAvailable(receiverNome));
+                            if (DecreaseVairmentMontant((int) montant, Input.ClientIsAvailable(senderNome))) {
+                                AddVairmentMontant((int) montant, Input.ClientIsAvailable(receiverNome));
+                               operations.add(new Model.Operation("Vairement ",montant,Input.GetDate(),senderNome,receiverNome));
                             }
                         }
                     } catch (NumberFormatException e) {
@@ -51,7 +62,6 @@ public class Operation {
 
         if (compteCourant.getSolde()-montant>=0) {
             compteCourant.setSolde(compteCourant.getSolde() - montant);
-            System.out.print(Green + "\n  Votre Vairment a été effectué avec succès " + Reset);
             return true;
         }
         else {
@@ -61,6 +71,8 @@ public class Operation {
     }
 
     public static  void Retrait() {
+
+
     }
 
     public static void Depots() {
