@@ -1,6 +1,7 @@
 package Menus;
 
 import Interfaces.OnSelectedListnner;
+import Services.Client;
 import Utils.Input;
 import static Services.Operation.*;
 import static Utils.Colors.*;
@@ -46,13 +47,22 @@ public class GererOperation implements OnSelectedListnner {
 
     @Override
     public void Select(int Menu) {
-        switch (Menu){
-            case 1 ->Virment();
-            case 2 ->Retrait();
-            case 3 ->Depots();
-            case 4 -> Afficher();
-            case 5 ->  // To get BAck To main Menu
-                    System.out.println(Blue+"\n\n  Retour au  Principal ! \n\n"+Reset);
+
+        if (!Client.getClientList().isEmpty()) {
+            switch (Menu) {
+                case 1 -> Virment();
+                case 2 -> Retrait();
+                case 3 -> Depots();
+                case 4 -> Afficher();
+                case 5 ->  // To get BAck To main Menu
+                        System.out.println(Blue + "\n\n  Retour au  Principal ! \n\n" + Reset);
+            }
+        } else if (Menu!=5) {
+            System.out.print(Red+"\n\n   Aucun client pour faire Des Opearation "+Reset);
         }
+        else {
+            System.out.println(Blue + "\n\n  Retour au  Principal ! \n\n" + Reset);
+        }
+
     }
 }
