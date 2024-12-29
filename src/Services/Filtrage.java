@@ -14,8 +14,10 @@ public class Filtrage {
     }
 
     public  static  void FiltrageByMinSolde(){
-        Stream<CompteCourant> filtrageCompteCourant=Services.Compte.getcompteCourantList().stream().filter(compte -> compte.getSolde() > 0);
-        filtrageCompteCourant.forEach( obj -> System.out.println(obj.toString()));
+        System.out.println(Yellow+"\n Filtrage By Min Solde : \n"+Reset);
+        Services.Compte.getcompteCourantList()
+                // comparator  increase
+                .stream().sorted(Comparator.comparingDouble(CompteCourant::getSolde)).forEach(a-> System.out.println(a.getCompte()));
     }
 
     public  static  void FiltrageByTypeTransaction(){
