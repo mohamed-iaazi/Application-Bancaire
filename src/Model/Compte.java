@@ -15,8 +15,16 @@ public abstract  class   Compte {
         this.proprietaire = proprietaire;
         this.date=date;
     }
+    
     public  Compte(){
 
+    }
+     public String getCompte(){
+        return   Blue+"\n Numero : "+Reset+ Numero
+                +Blue+"\n Solde "+ Reset+Solde
+                +Blue+"\n proprietaire "+Reset+ proprietaire
+                +Blue+"\n date "+ Reset+date
+                ;
     }
     public LocalDate getDate() {
         return date;
