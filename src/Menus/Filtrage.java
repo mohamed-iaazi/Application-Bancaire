@@ -24,7 +24,7 @@ public class Filtrage  implements OnSelectedListnner{
                                          1) Filtrage Operation avec Date
                                          2) Filtrage par Type de Transaction
                                          3) Filtrage par Solde Minimum
-                                         5) Retour au  Principal
+                                         4) Retour au  Principal
                             
                             
                             """+Reset);
